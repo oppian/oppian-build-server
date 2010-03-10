@@ -1,0 +1,4 @@
+build-env
+.project
+.pydevproject
+pip-log.txt
