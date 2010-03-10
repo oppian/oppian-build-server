@@ -5,6 +5,9 @@
 # argument will be deploy dir
 DEPLOY_DIR=$1
 
+# kill off any other buildbots
+killall buildbot
+
 # create the virtual env
 python boot.py build-env
 
@@ -20,12 +23,5 @@ chmod 600 ~/.ssh/id_rsa
 
 # start the daemons
 for botdir in master-oserver slave-localhost ; do
-  echo $botdir
-  cd $botdir
-  if [ -e $botdir/twistd.pid ] ; then
-    # stop if needed
-    buildbot stop
-  fi
-  buildbot start
-  cd ..
+  buildbot start $botdir
 done
