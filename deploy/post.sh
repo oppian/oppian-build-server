@@ -6,7 +6,7 @@
 DEPLOY_DIR=$1
 
 # kill off any other buildbots
-killall buildbot
+pkill -9 -f buildbot
 
 # create the virtual env
 python boot.py build-env
