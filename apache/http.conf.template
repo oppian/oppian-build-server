@@ -1,0 +1,21 @@
+ProxyRequests On
+ProxyVia On
+
+<VirtualHost *:80>
+
+    ServerName @HOSTNAME@
+
+    ServerAdmin admin@oppian.com
+    
+    CustomLog @DEPLOY_DIR@/access.log combined
+    ErrorLog @DEPLOY_DIR@/error.log
+    LogLevel warn
+    <Location />
+        Order allow,deny
+        Allow from all
+        ProxyPass http://localhost:8010/
+        ProxyPassReverse http://localhost:8010/
+    </Location>
+
+
+</VirtualHost>
