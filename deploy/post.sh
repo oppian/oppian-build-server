@@ -28,6 +28,9 @@ for botdir in master-oserver slave-localhost ; do
   buildbot start $botdir
 done
 
+# start the github callback
+python github_buildbot.py &
+
 # apache
 
 # enable mod_proxy
