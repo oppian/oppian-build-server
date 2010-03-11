@@ -1,3 +1,5 @@
+NameVirtualHost *:80
+
 ProxyRequests On
 ProxyVia On
 
