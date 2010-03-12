@@ -46,4 +46,7 @@ a2ensite build
 
 echo "Restarting apache..."
 apache2ctl configtest
-apache2ctl restart
+
+chown -R www-data $DEPLOY_DIR
+/etc/init.d/apache2 restart
+
