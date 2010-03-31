@@ -46,6 +46,14 @@ a2enmod proxy_http
 # rewrite template
 sed -e "s|@DEPLOY_DIR@|$DEPLOY_DIR|g" -e "s|@HOSTNAME@|$HOSTNAME|g" $DEPLOY_DIR/apache/http.conf.template > $DEPLOY_DIR/apache/http.conf
 
+# disable existing sites that no longer exist
+for site in /etc/apache2/sites-enabled/* ; do
+  if [ ! -e $site ] ; then
+    echo "Removing $site"
+    rm $site
+  fi
+done
+
 echo "Linking to apache config..."
 ln -s -f $DEPLOY_DIR/apache/http.conf /etc/apache2/sites-available/build
 a2ensite build
