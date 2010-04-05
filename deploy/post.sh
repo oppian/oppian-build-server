@@ -48,7 +48,7 @@ sed -e "s|@DEPLOY_DIR@|$DEPLOY_DIR|g" -e "s|@HOSTNAME@|$HOSTNAME|g" $DEPLOY_DIR/
 
 # disable existing sites that no longer exist
 for site in /etc/apache2/sites-enabled/* ; do
-  if [ ! -h $site ] ; then
+  if [ ! -e $site ] ; then
     echo "Removing $site"
     rm $site
   fi
