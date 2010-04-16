@@ -7,7 +7,6 @@ DEPLOY_DIR=$1
 HOSTNAME=build.oppian.com
 
 # kill off any other buildbots
-(pgrep -f buildbot)
 (pkill -9 -f buildbot)
 
 # create the virtual env
