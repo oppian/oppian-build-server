@@ -2,3 +2,6 @@ build-env
 .project
 .pydevproject
 pip-log.txt
+*.pyc
+buildserver/loki.db
+buildserver/buildbots
