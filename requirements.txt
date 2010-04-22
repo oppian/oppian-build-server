@@ -1,4 +1,5 @@
 Twisted==10.0.0
 buildbot==0.7.12
 zope.interface==3.5.3
-simplejson
+-e git+git@github.com:oppianmatt/django-loki.git@6d168df033dda54802635dbb7cea6b947368eb91#egg=Django_app_loki-0.7.1-py2.6-dev
+Django==1.1.1
