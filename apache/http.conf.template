@@ -12,7 +12,7 @@ ProxyRequests Off
     ErrorLog @DEPLOY_DIR@/error.log
     LogLevel warn
     
-    Alias / @DEPLOY_DIR@/docroot
+    Alias / @DEPLOY_DIR@/docroot/
 
     <Location />
         Order allow,deny
