@@ -11,18 +11,26 @@ ProxyRequests Off
     CustomLog @DEPLOY_DIR@/access.log combined
     ErrorLog @DEPLOY_DIR@/error.log
     LogLevel warn
+    
+    Alias / @DEPLOY_DIR@/docroot
 
     <Location />
         Order allow,deny
         Allow from all
-        ProxyPass http://localhost:8010/
-        ProxyPassReverse http://localhost:8010/
+
 
         AuthType Basic
         AuthName "Oppian Build And Deployment Server - OBADS"
         AuthUserFile @DEPLOY_DIR@/apache/passwd
         Require valid-user
         
+    </Location>
+    
+    <Location /oppster>
+        Order allow,deny
+        Allow from all
+        ProxyPass http://localhost:8010/
+        ProxyPassReverse http://localhost:8010/
     </Location>
 
 
