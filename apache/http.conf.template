@@ -18,20 +18,16 @@ ProxyRequests Off
         Order allow,deny
         Allow from all
 
-
         AuthType Basic
         AuthName "Oppian Build And Deployment Server - OBADS"
         AuthUserFile @DEPLOY_DIR@/apache/passwd
         Require valid-user
-        
     </Location>
     
-    <Location /oppster>
-        Order allow,deny
-        Allow from all
-        ProxyPass http://localhost:8010/
-        ProxyPassReverse http://localhost:8010/
-    </Location>
+    ProxyPass /oppster/ http://localhost:8010/
+    ProxyPassReverse /oppster/ http://localhost:8010/
+
+
 
 
 </VirtualHost>
