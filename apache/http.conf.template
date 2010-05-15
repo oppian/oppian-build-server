@@ -27,7 +27,7 @@ ProxyRequests Off
     ProxyPass /oppster/ http://localhost:8010/
     ProxyPassReverse /oppster/ http://localhost:8010/
 
-
-
+    ProxyPass /colab/ http://localhost:8012/
+    ProxyPassReverse /colab/ http://localhost:8012/
 
 </VirtualHost>
