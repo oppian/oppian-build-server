@@ -30,7 +30,7 @@ ProxyRequests Off
     ProxyPass /oppian/ http://localhost:8011/
     ProxyPassReverse /oppian/ http://localhost:8011/
 
-
-
+    ProxyPass /colab/ http://localhost:8012/
+    ProxyPassReverse /colab/ http://localhost:8012/
 
 </VirtualHost>
