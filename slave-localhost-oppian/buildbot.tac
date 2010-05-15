@@ -1,4 +1,4 @@
-r
+
 from twisted.application import service
 from buildbot.slave.bot import BuildSlave
 import os.path
