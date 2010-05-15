@@ -29,7 +29,7 @@ cat >> ~/.ssh/known_hosts <<EOF
 EOF
 
 # start the daemons
-for botdir in master-oserver slave-localhost ; do
+for botdir in master-oserver slave-localhost master-colab master-oppian slave-localhost-colab slave-localhost-oppian ; do
   buildbot start $botdir
 done
 
