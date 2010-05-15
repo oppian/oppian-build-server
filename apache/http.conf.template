@@ -26,6 +26,9 @@ ProxyRequests Off
     
     ProxyPass /oppster/ http://localhost:8010/
     ProxyPassReverse /oppster/ http://localhost:8010/
+    
+    ProxyPass /oppian/ http://localhost:8011/
+    ProxyPassReverse /oppian/ http://localhost:8011/
 
 
 
