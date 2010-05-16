@@ -33,8 +33,12 @@ for botdir in master-oserver slave-localhost master-colab master-oppian slave-lo
   buildbot start $botdir
 done
 
-# start the github callback
-python github_buildbot.py &
+# start the github callback for oserver
+python github_buildbot.py --port=4000 --buildmaster=localhost:9989 --level=warn --log=$DEPLOY_DIR/github_buildbot_oserver.log --github=github.com &
+# start the github callback for oppian.com
+python github_buildbot.py --port=4001 --buildmaster=localhost:9990 --level=warn --log=$DEPLOY_DIR/github_buildbot_oppian.com.log --github=github.com &
+# start the github callback for colab
+python github_buildbot.py --port=4002 --buildmaster=localhost:9991 --level=warn --log=$DEPLOY_DIR/github_buildbot_colab.log --github=github.com &
 
 # apache
 
