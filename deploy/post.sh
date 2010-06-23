@@ -8,6 +8,9 @@ HOSTNAME=build.oppian.com
 
 # kill off any other buildbots
 (pkill -9 -f buildbot)
+sleep 10
+(pkill -9 -f buildbot)
+sleep 1
 
 # create the virtual env
 python boot.py build-env
