@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash 
 
 # This is called post download and used to setup the environment for the first time.
 
