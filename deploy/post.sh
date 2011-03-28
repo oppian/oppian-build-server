@@ -31,10 +31,20 @@ cat >> ~/.ssh/known_hosts <<EOF
 |1|C2hLILCuBfn30RTd2vq+lD30Ixo=|7D8bRYoVxZ76vsgNO6IYMGqrN1Q= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
 EOF
 
-# start the daemons
-for botdir in master-oserver slave-localhost master-colab master-oppian slave-localhost-colab slave-localhost-oppian ; do
-  buildbot start $botdir
-done
+# start the buildbots
+
+buildbot start master-oserver
+buildbot start slave-localhost
+
+buildbot start master-colab
+buildbot start slave-localhost-colab
+
+buildbot start master-oppian
+buildbot start slave-localhost-oppian
+
+buildbot start master-pinax-demo-static
+buildbot start slave-localhost-pinax-demo-static
+
 
 # start the github callback for oserver
 python github_buildbot.py --port=4000 --buildmaster=localhost:9989 --level=warn --log=$DEPLOY_DIR/github_buildbot_oserver.log --github=github.com &
@@ -42,6 +52,8 @@ python github_buildbot.py --port=4000 --buildmaster=localhost:9989 --level=warn 
 python github_buildbot.py --port=4001 --buildmaster=localhost:9990 --level=warn --log=$DEPLOY_DIR/github_buildbot_oppian.com.log --github=github.com &
 # start the github callback for colab
 python github_buildbot.py --port=4002 --buildmaster=localhost:9991 --level=warn --log=$DEPLOY_DIR/github_buildbot_colab.log --github=github.com &
+# pinax-demo-static
+python github_buildbot.py --port=4003 --buildmaster=localhost:9992 --level=warn --log=$DEPLOY_DIR/github_buildbot_pinax-demo-static.log --github=github.com &
 
 # apache
 

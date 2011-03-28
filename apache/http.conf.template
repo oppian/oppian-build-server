@@ -32,5 +32,8 @@ ProxyRequests Off
 
     ProxyPass /colab/ http://localhost:8012/
     ProxyPassReverse /colab/ http://localhost:8012/
+    
+    ProxyPass /pinax-demo-static/ http://localhost:8013/
+    ProxyPassReverse /pinax-demo-static/ http://localhost:8013/
 
 </VirtualHost>
