@@ -1,19 +1,13 @@
 Oppian Build And Deploy System
 ==============================
 
-This is the old Oppian build and deploy system. It is based off buildbot, one set per 
-project. It created 3 deployment environments, production, staging and development.
+This is the old Oppian build and deploy system. It is based off buildbot, one set per project. It created 3 deployment environments, production, staging and development.
 
-Development was triggered by a commit to github. A hook started the build and deployment
-of the project. It would start with a fresh database.
+Development was triggered by a commit to github. A hook started the build and deployment of the project. It would start with a fresh database.
 
-If this succeeded and passed all the tests it would then trigger a staging build. This
-differs by instead of having a fresh database a copy of the existing production database
-would be used and any schema and database changed applied (via south).
+If this succeeded and passed all the tests it would then trigger a staging build. This differs by instead of having a fresh database a copy of the existing production database would be used and any schema and database changed applied (via south).
 
-The process to apply it to production required a manual trigger. This was so that staging
-could be verified and given the all clear before the same process applied the production
-deployment.
+The process to apply it to production required a manual trigger. This was so that staging could be verified and given the all clear before the same process applied the production deployment.
 
 This was made public as an example of our deployment procedures and so others could learn.
 
